@@ -1,0 +1,17 @@
+{
+  "cSpell.words": ["Vitesse", "Vite", "unocss", "vitest", "vueuse", "pinia", "demi", "antfu", "iconify", "intlify", "vitejs", "unplugin", "pnpm", "stylelint", "typecheck"],
+  "prettier.enable": false,
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": "locales",
+  "i18n-ally.sortKeys": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.tabSize": 4,
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "stylelint.validate": ["css", "scss", "vue", "less"]
+}
