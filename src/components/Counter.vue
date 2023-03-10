@@ -3,23 +3,25 @@
  * @Description: 计数示例代码
 -->
 <script setup lang="ts">
-const props = defineProps<{
-  initial: number
-}>()
+import { Button as aButton } from 'ant-design-vue'
+const props = defineProps(['foo'])
+
+console.log(props.foo)
 const name = ref('313')
 
-const { count, inc, dec } = useCounter(props.initial)
+const { count, inc, dec } = useCounter(props.foo)
 </script>
 
 <template>
   <div>
     {{ count }}
-    <button class="inc" @click="inc()">
+    <aButton @click="inc()">
       +
-    </button>
+    </aButton>
     <div>{{ name }}</div>
-    <button class="dec" @click="dec()">
+    <aButton @click="dec()">
       -
-    </button>
+    </aButton>
+    <slot :text="count" />
   </div>
 </template>

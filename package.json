@@ -15,13 +15,13 @@
   "dependencies": {
     "@vueuse/core": "^8.7.5",
     "axios": "^0.27.2",
-    "element-plus": "^2.2.9",
+    "element-plus": "^2.2.26",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
     "rc-util": "^5.22.5",
     "vite-plugin-mock": "^2.9.6",
-    "vue": "^3.2.37",
+    "vue": "3.2.44",
     "vue-gtag-next": "^1.14.0",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.16"
@@ -36,7 +36,10 @@
     "@unocss/reset": "^0.42.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/test-utils": "^2.0.1",
+    "@vuepress/client": "2.0.0-beta.51",
+    "@vuepress/plugin-search": "2.0.0-beta.51",
     "@vueuse/integrations": "^8.9.4",
+    "ant-design-vue": "^3.2.15",
     "eslint": "^8.18.0",
     "husky": ">=7",
     "jsdom": "^20.0.0",
@@ -63,8 +66,10 @@
     "vite-plugin-vue-layouts": "^0.6.0",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitest": "^0.16.0",
+    "vue-docgen-api": "^4.60.0",
     "vue-tsc": "^0.38.2",
-    "vuepress": "2.0.0-beta.61"
+    "vuepress": "2.0.0-beta.51",
+    "vuepress-plugin-demoblock-plus": "^2.0.4"
   },
   "lint-staged": {
     "*.{js, jsx, vue, ts, tsx}": [
