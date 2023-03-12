@@ -5,7 +5,12 @@ import sidebar from './configs/sidebar'
 import { demoblockPlugin } from 'vuepress-plugin-demoblock-plus'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import fs from 'fs';
 // import { searchPlugin } from '@vuepress/plugin-search'
+// import { createServer as createViteServer } from 'vite'
+// import cors from 'cors';
+// import express from 'express';
+import path from 'path'
 export default {
     lang: 'zh-CN',
     title: '组件库',
@@ -19,34 +24,36 @@ export default {
     }),
     bundler: viteBundler({
         viteOptions: {
-            plugins: [AutoImport({
-                include: [
-                    /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-                    /\.vue$/, /\.vue\?vue/, // .vue
-                    /\.md$/, // .md
-                ],
-                imports: [
-                    'vue',
-                    'vue/macros',
-                    'vue-router',
-                    {
-                        vue: [
-                            'defineProps',
-                            'defineEmits',
-                            'defineExpose',
-                            'withDefaults',
-                        ],
-                    },
-                    'pinia',
-                    'vue-i18n',
-                    '@vueuse/core',
-                ],
-                resolvers: [
-                    ElementPlusResolver(),
-                ],
-                dts: true,
-                vueTemplate: true,
-            }),],
+
+            plugins: [
+                AutoImport({
+                    include: [
+                        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+                        /\.vue$/, /\.vue\?vue/, // .vue
+                        /\.md$/, // .md
+                    ],
+                    imports: [
+                        'vue',
+                        'vue/macros',
+                        'vue-router',
+                        {
+                            vue: [
+                                'defineProps',
+                                'defineEmits',
+                                'defineExpose',
+                                'withDefaults',
+                            ],
+                        },
+                        'pinia',
+                        'vue-i18n',
+                        '@vueuse/core',
+                    ],
+                    resolvers: [
+                        ElementPlusResolver(),
+                    ],
+                    dts: true,
+                    vueTemplate: true,
+                }),],
         }
     }),
     plugins: [
@@ -69,10 +76,16 @@ export default {
         {
             name: 'test1',
             multiple: false,
-            onInitialized: async (app: App) => {
-                debugger;
-
-                console.log('=======3=========');
+            onInitialized: async (app2: App) => {
+            },
+            extendsBundlerOptions: async (bundlerOptions, appVite) => {
+                bundlerOptions.viteOptions.plugins.push({
+                    name: 'tvue',
+                    configureServer(_server) {
+                        console.log('====', _server);
+                        // _server.midd
+                    }
+                })
             }
         }
     ]
